@@ -38,12 +38,23 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_registration",
 ]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
+}
+
+REST_REGISTRATION = {
+    "REGISTER_VERIFICATION_ENABLED": False,
+    "REGISTER_EMAIL_VERIFICATION_ENABLED": False,
+    "RESET_PASSWORD_VERIFICATION_ENABLED": False,
+    # "REGISTER_VERIFICATION_URL": "http://localhost:8000/verify-user/",
+    # "RESET_PASSWORD_VERIFICATION_URL": "http://localhost:8000/reset-password/",
+    # "REGISTER_EMAIL_VERIFICATION_URL": "http://localhost:8000/verify-email/",
+    # "VERIFICATION_FROM_EMAIL": "no-reply@example.com",
 }
 
 MIDDLEWARE = [
@@ -82,8 +93,12 @@ WSGI_APPLICATION = "registeration.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "registeration",
+        "USER": "postgres",
+        "PASSWORD": "0550149422",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
