@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     "rest_framework",
-    "rest_registration",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
+
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -47,15 +52,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-REST_REGISTRATION = {
-    "REGISTER_VERIFICATION_ENABLED": False,
-    "REGISTER_EMAIL_VERIFICATION_ENABLED": False,
-    "RESET_PASSWORD_VERIFICATION_ENABLED": False,
-    # "REGISTER_VERIFICATION_URL": "http://localhost:8000/verify-user/",
-    # "RESET_PASSWORD_VERIFICATION_URL": "http://localhost:8000/reset-password/",
-    # "REGISTER_EMAIL_VERIFICATION_URL": "http://localhost:8000/verify-email/",
-    # "VERIFICATION_FROM_EMAIL": "no-reply@example.com",
-}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
